@@ -1,1 +1,31 @@
-site_name: My Docs
+site_name: Shoal
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Initial Setup: first-setup.md
+  - Deployment Guides:
+    - Deploy an Application: deploy-app.md
+    - Deploy with a Database: deploy-app-database.md
+    - Deploy with a Scheduler: deploy-app-scheduler.md
+    - Deploy with Multiple Containers: deploy-app-multi.md
