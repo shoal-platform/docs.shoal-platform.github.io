@@ -21,6 +21,11 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+markdown_extensions:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences
+
 nav:
   - Home: index.md
   - Initial Setup: first-setup.md
@@ -29,3 +34,13 @@ nav:
     - Deploy with a Database: deploy-app-database.md
     - Deploy with a Scheduler: deploy-app-scheduler.md
     - Deploy with Multiple Containers: deploy-app-multi.md
+  - FAQ & Guides:
+    - Overview: faq.md
+    - Zipping a Project Folder: guide-zip.md
+    - Writing a Dockerfile: guide-dockerfile.md
+    - What is eu1.shoal.live?: faq-shoal-live.md
+    - Setting up a Custom Domain: faq-custom-domain.md
+    - Environment Variables: faq-env-vars.md
+    - What Port to Use: faq-port.md
+    - Why is my Deployment Failing?: faq-deployment-failing.md
+    - Deploying a Private GitHub Repo: faq-private-repo.md

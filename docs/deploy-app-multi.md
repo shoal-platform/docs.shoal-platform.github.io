@@ -4,8 +4,8 @@ In this example, we have an application made up of several services, all exposed
 
 You need four components: three **container nodes** and one **proxy node**.
 
-- **Container nodes** — each links to its own source code and runs independently, with automatic scaling and resilience.
-- **Proxy node** — routes incoming requests to the right container based on the path or subdomain you configure.
+- **Container nodes** - each links to its own source code and runs independently, with automatic scaling and resilience.
+- **Proxy node** - routes incoming requests to the right container based on the path or subdomain you configure.
 
 Hit deploy, and it just works.
 
@@ -21,7 +21,7 @@ Click the proxy node, open the **Config** tab, and enter the URL name you want. 
 
 ### Step Three
 
-Click each container node, open the **Config** tab, and set up its source — either a GitHub repo or a file upload. You'll need a Dockerfile in each service's code.
+Click each container node, open the **Config** tab, and set up its source - either a GitHub repo or a file upload. You'll need a Dockerfile in each service's code.
 
 ### Step Four
 
@@ -30,7 +30,7 @@ Configure routing on the proxy node. Double-click a connection to enter the path
 - `/finance/` → finance container
 - `/payments/` → payments container
 
-A standard pattern for services and microservices is to include a version in the path — e.g. `/finance/v1/...` and `/payments/v1/...`. This keeps routing clean and gives your frontend a stable contract as services evolve.
+A standard pattern for services and microservices is to include a version in the path - e.g. `/finance/v1/...` and `/payments/v1/...`. This keeps routing clean and gives your frontend a stable contract as services evolve.
 
 ### Step Five
 
@@ -38,4 +38,4 @@ Press **Deploy**. You can watch the deployment in real time via the **Observabil
 
 ### Done
 
-Your app is live at the address you configured — with traffic routed to the right service, running in a scalable, resilient, and protected environment.
+Your app is live at the address you configured - with traffic routed to the right service, running in a scalable, resilient, and protected environment.
