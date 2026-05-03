@@ -2,7 +2,7 @@
 
 To use your own domain (e.g. `app.mycompany.com`) instead of the default `eu1.shoal.live` address:
 
-1. In your proxy node config, note the full Shoal address for your deployment (e.g. `my-app.eu1.shoal.live`).
+1. In your gateway node config, note the full Shoal address for your deployment (e.g. `my-app.eu1.shoal.live`).
 2. Go to your DNS provider and add a `CNAME` record:
 
     | Type  | Name | Value                 |

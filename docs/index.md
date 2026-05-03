@@ -1,15 +1,24 @@
 # Shoal Quick Start Guide
 
-Welcome to Shoal - the simplest way to deploy your application to the internet. Point Shoal at your GitHub repo, connect a proxy, and hit deploy. Shoal handles containers, scaling, SSL, and routing automatically, so you can focus on building.
+Welcome to Shoal - the simplest way to deploy your application to the internet. Point Shoal at your GitHub repo, connect a gateway, and hit deploy. Shoal handles containers, scaling, SSL, and routing automatically, so you can focus on building.
 
 This guide walks you through everything you need to get started - from core concepts to deploying apps with databases, schedulers, and multi-service routing.
 
 ## Things you need to know
 
-### What is a proxy server? Why do I need one?
-A proxy server sits in front of your app and routes incoming traffic to the right place. Think of it as a receptionist - visitors don't go straight to your desk, they check in first. On Shoal, your proxy handles this automatically so your app is reachable from the internet without any extra setup.
+### What is a gateway? Why do I need one?
+A gateway sits in front of your app and directs all incoming traffic to the right place. Think of it as a receptionist - visitors don't go straight to your desk, they check in first. On Shoal, your gateway handles this automatically so your app is reachable from the internet without any extra setup.
 
-It also keeps your app secure and stable. The proxy shields your app from direct exposure to the internet, handles SSL so all traffic is encrypted, and protects against sudden spikes by rate limiting incoming requests - so a surge in traffic won't take your app down.
+It also keeps your app secure and stable. The gateway shields your app from direct exposure to the internet, handles SSL so all traffic is encrypted, and protects against sudden spikes by rate limiting incoming requests - so a surge in traffic won't take your app down.
+
+The Shoal gateway is configured to achieve an **A grade** on [SSL Labs](https://www.ssllabs.com/ssltest/){ target="_blank" } out of the box - no SSL configuration needed on your part.
+
+![SSL Labs A Grade](assets/screenshots/ssl.png){ .screenshot }
+
+!!! info "What is SSL Labs?"
+    [SSL Labs](https://www.ssllabs.com/ssltest/){ target="_blank" } is a free tool by Qualys that analyses the SSL/TLS configuration of any public-facing website and gives it a grade from A+ down to F. It checks things like which encryption protocols are enabled, certificate validity, and known vulnerabilities. An A grade means your site is using strong, modern encryption and is well protected in transit.
+
+It also includes an **IPS (Intrusion Prevention System)**, which watches incoming traffic in real time and automatically blocks known attacks and malicious requests before they ever reach your app - so you get an extra layer of protection with no setup required.
 
 ### What is a container?
 A container is a lightweight package that holds your app and everything it needs to run - code, dependencies, settings. It works the same way on any machine, so there are no "works on my computer" surprises. Shoal runs your app inside containers behind the scenes.

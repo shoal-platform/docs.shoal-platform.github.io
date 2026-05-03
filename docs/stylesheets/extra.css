@@ -1,3 +1,15 @@
+.screenshot {
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  max-width: 260px;
+  opacity: 0.92;
+}
+
+.tabbed-content table {
+  width: 100%;
+  table-layout: fixed;
+}
+
 :root {
   --md-primary-fg-color: #006591;
   --md-primary-fg-color--light: #0ea5e9;

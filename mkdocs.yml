@@ -25,6 +25,12 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - tables
+  - admonition
 
 nav:
   - Home: index.md
@@ -41,6 +47,7 @@ nav:
     - What is eu1.shoal.live?: faq-shoal-live.md
     - Setting up a Custom Domain: faq-custom-domain.md
     - Environment Variables: faq-env-vars.md
-    - What Port to Use: faq-port.md
+    - Framework Default Ports: faq-port.md
+    - Crontab Expressions: faq-crontab.md
     - Why is my Deployment Failing?: faq-deployment-failing.md
     - Deploying a Private GitHub Repo: faq-private-repo.md

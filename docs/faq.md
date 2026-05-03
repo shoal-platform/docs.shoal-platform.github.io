@@ -13,5 +13,6 @@ Common questions and guides for getting started with Shoal.
 - [How do I set up a custom domain?](faq-custom-domain.md)
 - [What are environment variables?](faq-env-vars.md)
 - [What port should my app listen on?](faq-port.md)
+- [Crontab expressions](faq-crontab.md)
 - [Why is my deployment failing?](faq-deployment-failing.md)
 - [Can I deploy a private GitHub repo?](faq-private-repo.md)

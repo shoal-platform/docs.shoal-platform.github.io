@@ -2,32 +2,39 @@
 
 In this example, we have an application connected to a database hosted on [Neon](https://neon.tech). *(Shoal will soon support its own managed databases.)*
 
-You need two components: a **container node** and a **proxy node**.
+You need two components: a **container node** and a **gateway node**.
 
 - **Container node** - links to your source code, runs and scales your container, and lets you add environment variables (like your database connection string).
-- **Proxy node** - where you set the DNS name for your app.
+- **Gateway node** - where you set the DNS name for your app.
 
 Hit deploy, and it just works.
 
 ### Step One
 
-Drag a container node and a proxy node onto the canvas, then link them together. You can also add a comment box if you like.
+Drag a container node and a gateway node onto the canvas, then link them together. You can also add a comment box if you like.
 
 ![Create App](assets/screenshots/app1.png)
 
 ### Step Two
 
-Click the proxy node, open the **Config** tab, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
+Click the gateway node, open the **Config** tab, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
+
+![Create App](assets/screenshots/app2.png)
 
 ### Step Three
 
 Click the container node, open the **Config** tab, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
+
+You can add the envirorment variables via the config on the container, or via the settings page on the actual environment.
 
 Add any environment variables your app needs here. For example:
 
 ```
 DATABASE_CONNECTION = postgresql://neondb_owner:password@server.aws.neon.tech/neondb?sslmode=require
 ```
+
+![Create App](assets/screenshots/app5.png)
+![Create App](assets/screenshots/app6.png)
 
 Environment variables are passed in at runtime only - they're stored securely and encrypted. You can also review, add, or remove them any time from the **Settings** menu in your project.
 
