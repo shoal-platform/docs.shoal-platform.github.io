@@ -3,7 +3,7 @@ site_name: Shoal
 theme:
   name: material
   logo: assets/logo.png
-  favicon: assets/logo.png
+  favicon: assets/shoal-logo.svg
   palette:
     - scheme: slate
       primary: custom
@@ -34,6 +34,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - What We Support: supported.md
   - Initial Setup: first-setup.md
   - Deployment Guides:
     - Deploy an Application: deploy-app.md
