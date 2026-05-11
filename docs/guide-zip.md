@@ -1,6 +1,23 @@
-# How to Zip Your Project Folder
+# Uploading Your Project
 
-Shoal accepts a zip file of your project when you don't want to connect a GitHub repo directly.
+When connecting a container node to a file source, you have two options:
+
+| Option | How | Best for |
+|---|---|---|
+| **Folder upload** | Select a folder directly - no zipping needed | Most cases |
+| **Zip upload** | Create a zip and upload the file | Large projects, scripted uploads |
+
+## Option 1 - Upload a folder directly
+
+Select the folder option in the container node config and pick your project folder. Shoal handles everything automatically - no zipping required.
+
+Shoal also automatically removes files that don't belong in a deployed container (dependencies, caches, build artefacts, editor config), so only your source code is sent. See the full [skipped files reference](skipped-files.md) for details.
+
+---
+
+## Option 2 - Upload a zip file
+
+Shoal accepts a zip file of your project when you prefer to create the archive yourself.
 
 !!! warning "Structure matters"
     Your zip must contain your files directly at the root - **not** wrapped in a subfolder. Shoal expects to find your `Dockerfile` and source files immediately when it opens the zip.

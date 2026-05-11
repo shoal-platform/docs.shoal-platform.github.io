@@ -4,7 +4,8 @@ Common questions and guides for getting started with Shoal.
 
 ## Guides
 
-- [How to zip your project folder](guide-zip.md)
+- [Uploading your project](guide-zip.md)
+- [Skipped upload files](skipped-files.md)
 - [Writing a Dockerfile](guide-dockerfile.md)
 
 ## FAQ
