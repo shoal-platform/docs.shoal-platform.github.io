@@ -2,6 +2,9 @@
 
 The Shoal scheduler node uses standard **crontab expressions** to define when your container should run. If you've ever set up a scheduled task on a Linux server, it's exactly the same syntax.
 
+!!! tip "Build and test your expression"
+    Not sure of your expression? **[crontab.guru](https://crontab.guru/){ target="_blank" }** is a free interactive editor that translates crontab expressions into plain English as you type - so you can see exactly when your job will run before you deploy.
+
 ---
 
 ## How it works
