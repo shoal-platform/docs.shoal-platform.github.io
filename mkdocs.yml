@@ -18,6 +18,10 @@ theme:
         icon: material/brightness-4
         name: Switch to dark mode
 
+plugins:
+  - search
+  - glightbox
+
 extra_css:
   - stylesheets/extra.css
 
