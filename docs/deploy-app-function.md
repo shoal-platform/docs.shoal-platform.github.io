@@ -15,7 +15,7 @@ Follow the steps below to deploy your function.
 
     ![Function App Setup](assets/screenshots/function-1.png)
 
-2. Click the function node, open the **Config** tab, and configure your function. Set the **Language**, **Runtime Version**, and **Source**. If using GitHub, select your account, repository, and branch or you can just upload a file source.
+2. Click the function node to open it, then use the **Runtime** and **Source** sections to configure it. In **Runtime**, set the **Language**, **Version**, and **Entry Point**; in **Source**, choose GitHub (then select your account, repository, and branch) or upload a file source.
 
     ![Function Node Config](assets/screenshots/function-2.png)
 
@@ -30,7 +30,7 @@ Follow the steps below to deploy your function.
 
     ![Function Editor](assets/screenshots/function-4.png)
 
-3. Click the gateway node, open the **Config** tab, and enter the URL name you want. For example, entering `my-function` will make your function available at `my-function.eu1.shoal.live`. You can also point a [custom domain](faq-custom-domain.md) at this address.
+3. Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `my-function` will make your function available at `my-function.eu1.shoal.live`. You can also point a [custom domain](faq-custom-domain.md) at this address.
 
 4. Press **Deploy**. You can watch the deployment in real time via the **Observability** menu.
 

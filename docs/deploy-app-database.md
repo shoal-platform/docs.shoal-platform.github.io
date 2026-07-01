@@ -17,15 +17,15 @@ Drag a container node and a gateway node onto the canvas, then link them togethe
 
 ### Step Two
 
-Click the gateway node, open the **Config** tab, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
+Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
 
 ![Create App](assets/screenshots/app2.png)
 
 ### Step Three
 
-Click the container node, open the **Config** tab, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
+Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
 
-You can add the envirorment variables via the config on the container, or via the settings page on the actual environment.
+You can add the environment variables via the container node's **Env** section, or via the settings page on the actual environment.
 
 Add any environment variables your app needs here. For example:
 

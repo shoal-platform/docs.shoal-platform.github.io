@@ -18,13 +18,13 @@ Drag a container node, a gateway node, and a MongoDB node onto the canvas, then 
 
 ### Step Two
 
-Click the gateway node, open the **Config** tab, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a [custom domain](faq-custom-domain.md) at this address.
+Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a [custom domain](faq-custom-domain.md) at this address.
 
 ![Mongo gateway config](assets/screenshots/mongo-deploy-02-gateway-config.png)
 
 ### Step Three
 
-Click the container node, open the **Config** tab, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
+Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
 
 Open the MongoDB node and click **Set up MongoDB** (or **Configure** / **Edit** if it's already initialized).
 
