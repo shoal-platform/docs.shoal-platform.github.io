@@ -43,6 +43,7 @@ nav:
   - Deployment Guides:
     - Deploy an Application: deploy-app.md
     - Deploy with a Database: deploy-app-database.md
+    - Deploy with Neon: deploy-app-neon.md
     - Deploy with a Scheduler: deploy-app-scheduler.md
     - Deploy with a Function: deploy-app-function.md
     - Deploy with Multiple Containers: deploy-app-multi.md
