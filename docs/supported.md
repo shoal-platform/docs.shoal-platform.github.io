@@ -146,4 +146,4 @@ For default ports per framework, see the [framework port reference](faq-port.md)
 | **Cloud** | Google Cloud Platform (GCP) | AWS, Azure, and others |
 | **Hosting** | Shoal-managed | Deploy to your own private infrastructure |
 | **Databases** | External (e.g. Neon) | Shoal-managed databases |
-| **Dockerfile** | Required | Auto-detection without a Dockerfile |
+| **Dockerfile** | Optional - auto-detection when omitted | Broader framework coverage |

@@ -7,6 +7,6 @@
 | Build fails immediately | Missing or invalid Dockerfile - see [Writing a Dockerfile](guide-dockerfile.md) |
 | Build succeeds but app won't start | App crashing on startup - check runtime logs in Observability |
 | App starts but isn't reachable | App not listening on port `8080` |
-| Environment errors at runtime | Missing environment variable - check container node Config tab |
+| Environment errors at runtime | Missing environment variable - check the container node's **Env** section |
 
 If you're still stuck, the Observability log output will usually point directly at the problem.

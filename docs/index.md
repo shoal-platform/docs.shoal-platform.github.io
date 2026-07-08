@@ -26,7 +26,7 @@ A container is a lightweight package that holds your app and everything it needs
 ### What is a Dockerfile?
 A Dockerfile is a simple text file that describes how to build your container. It lists the steps to set up your app - what base image to start from, what files to copy in, and what command to run. Think of it as a recipe: Shoal follows it to package your app into a container that's ready to deploy.
 
-*Coming soon: Shoal will be able to build and deploy your app without needing a Dockerfile at all.*
+*You don't always need a Dockerfile - if your project doesn't include one, Shoal auto-detects your stack and builds it for you.*
 
 ### What is a scheduler?
 A scheduler runs tasks on a timer - like a cron job or a recurring reminder. If you need something to happen every night at midnight or every 5 minutes, a scheduler handles that for you without leaving a server running 24/7.

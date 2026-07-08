@@ -15,7 +15,7 @@ Hit deploy, and it just works.
 
 ### Step Two
 
-Click the scheduler node, open the **Config** tab, and enter a crontab expression to set when your container should run.
+Click the scheduler node to open it, expand the **Schedule** section, and enter a crontab expression to set when your container should run.
 
 ![Create App](assets/screenshots/app8.png)
 

@@ -50,7 +50,7 @@ Set the path for each connection. Double-click a link between a container and th
 
 ### Step Three
 
-Click the gateway node, open the **Config** tab, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
+Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
 
 ### Step Four
 
