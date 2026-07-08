@@ -24,7 +24,7 @@ Click the gateway node to open it, expand the **Domain** section, and enter the 
 
 ### Step Three
 
-Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
+Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. If your project includes a Dockerfile, Shoal builds from it; otherwise Shoal auto-detects your stack and builds it for you.
 
 Open the MongoDB node and click **Set up MongoDB** (or **Configure** / **Edit** if it's already initialized).
 
