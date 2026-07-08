@@ -24,7 +24,7 @@ Click the gateway node to open it, expand the **Domain** section, and enter the 
 
 ### Step Three
 
-Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. You'll need a Dockerfile in your code.
+Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. If your project includes a Dockerfile, Shoal builds from it; otherwise Shoal auto-detects your stack and builds it for you.
 
 Open the Neon node and click **Set up Database** (or **Configure** / **Edit** if it's already initialized). If a Neon API key is not saved for the space yet, Shoal prompts you with **Connect Neon** first, where you enter your Neon API key. If a key is already saved, Shoal skips this step and opens setup directly.
 
