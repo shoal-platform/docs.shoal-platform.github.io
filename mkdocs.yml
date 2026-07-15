@@ -48,6 +48,7 @@ nav:
     - Deploy with a Scheduler: deploy-app-scheduler.md
     - Deploy with a Function: deploy-app-function.md
     - Deploy with Multiple Containers: deploy-app-multi.md
+  - Connect Your AI (MCP): mcpservers.md
   - FAQ & Guides:
     - Overview: faq.md
     - Uploading Your Project: guide-zip.md
