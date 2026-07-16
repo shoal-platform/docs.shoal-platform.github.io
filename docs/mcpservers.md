@@ -2,7 +2,7 @@
 
 Shoal runs a **Model Context Protocol (MCP)** server, so you can drive your Shoal platform straight from the AI assistant or editor you already use. Once connected, your assistant can browse blueprints, create projects and environments, set environment variables, and inspect your deployment graph - all as you, using a key you control.
 
-Any MCP-capable client works. This guide shows the seven most common ones. The setup is always the same three steps: **create an API key**, point your client at the **server URL**, and pass the key in the **`X-Api-Key`** header.
+Any MCP-capable client works. This guide shows the eight most common ones. The setup is always the same three steps: **create an API key**, point your client at the **server URL**, and pass the key in the **`X-Api-Key`** header.
 
 ## 1. Create an API key
 
@@ -77,6 +77,16 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
 
     !!! info "Custom connectors need the right plan"
         Adding your own remote MCP server requires a ChatGPT plan with custom connectors / developer mode enabled (Plus, Pro, Business, or Enterprise). The exact menu wording changes as ChatGPT evolves - see [OpenAI's connector docs](https://platform.openai.com/docs/mcp){ target="_blank" }.
+
+=== ":simple-x: Grok (xAI)"
+
+    Grok can call remote MCP servers.
+
+    - **Grok app** - open **Settings → Connectors → Add MCP server** (or **Add custom connector**), paste the URL `https://api.shoalstack.com/shoal-chatbot-service/mcp`, and add a custom header `X-Api-Key` with your key.
+    - **Grok CLI / MCP-capable Grok client** - point it at the same URL with an `X-Api-Key` header, using the client's `mcpServers` config (same shape as the Cursor tab).
+
+    !!! info "xAI MCP support is newer"
+        Grok's MCP connector support is relatively new and the exact menu wording changes as xAI iterates. If you don't see an MCP / custom-connector option, check [xAI's documentation](https://docs.x.ai){ target="_blank" } for the current steps.
 
 === ":simple-cursor: Cursor"
 
