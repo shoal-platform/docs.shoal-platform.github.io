@@ -1,6 +1,6 @@
 # Connect Your AI Assistant (MCP)
 
-Shoal runs a **Model Context Protocol (MCP)** server, so you can drive your Shoal platform straight from the AI assistant or editor you already use. Once connected, your assistant can browse blueprints, create projects and environments, set environment variables, and inspect your deployment graph - all as you, using a key you control.
+Shoal runs a **Model Context Protocol (MCP)** server, so you can drive your Shoal platform straight from the AI assistant or editor you already use. Once connected, your assistant can browse the shared blueprint templates, create your own projects and environments, set environment variables, and inspect your deployment graph - all as you, using a key you control.
 
 Any MCP-capable client works. This guide shows the eight most common ones. The setup is always the same three steps: **create an API key**, point your client at the **server URL**, and pass the key in the **`X-Api-Key`** header.
 
@@ -168,7 +168,7 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
 
 ## Verify it works
 
-Ask your assistant to **list your Shoal blueprints**. Behind the scenes that calls the read-only `list_blueprints` tool - if you get a list back, you're connected and ready to go. From there you can ask it to create a project, add an environment, set variables, and more.
+Ask your assistant to **list the available Shoal blueprints** - the shared, reusable templates on the platform. Behind the scenes that calls the read-only `list_blueprints` tool - if you get a list back, you're connected and ready to go. From there you can ask it to **create a project** of your own, add an environment, set variables, and more.
 
 !!! tip "Not connecting?"
     - Check the key hasn't been revoked or expired under **Space → API keys**.
