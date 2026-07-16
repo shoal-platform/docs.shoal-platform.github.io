@@ -2,3 +2,9 @@ myenv/
 site/
 __pycache__/
 *.pyc
+
+
+.DS_Store
+.claude/
+docs/.DS_Store
+docs/assets/.DS_Store
