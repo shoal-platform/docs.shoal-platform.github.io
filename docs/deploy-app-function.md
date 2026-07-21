@@ -30,9 +30,9 @@ Follow the steps below to deploy your function.
 
     ![Function Editor](assets/screenshots/function-4.png)
 
-3. Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `my-function` will make your function available at `my-function.eu1.shoal.live`. You can also point a [custom domain](faq-custom-domain.md) at this address.
+3. Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `my-function` will make your function available at `my-function.eu1.shoal.live`.
 
-4. Press **Deploy**. You can watch the deployment in real time via the **Observability** menu.
+4. Press **Deploy**. You can watch the deployment in real time via the **Deployments** page, or check build and runtime logs under **Observability & Logs**.
 
 ### Done
 

@@ -1,6 +1,6 @@
 # Initial Setup
 
-After logging in and selecting your project, you can create a new environment (if one does not exist) using the **Create** button.
+After logging in and selecting your project, you can create a new environment (if one does not exist) using the **Create New Env** button.
 
 Once your environment is ready, head to one of the deployment guides to get your app live.
 

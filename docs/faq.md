@@ -11,7 +11,7 @@ Common questions and guides for getting started with Shoal.
 ## FAQ
 
 - [What is `eu1.shoal.live`?](faq-shoal-live.md)
-- [How do I set up a custom domain?](faq-custom-domain.md)
+- [How do I set up a custom domain?](faq-custom-domain.md) *(not currently supported)*
 - [What are environment variables?](faq-env-vars.md)
 - [What port should my app listen on?](faq-port.md)
 - [Crontab expressions](faq-crontab.md)

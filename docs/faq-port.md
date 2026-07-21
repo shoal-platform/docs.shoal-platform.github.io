@@ -1,6 +1,8 @@
 # Framework Default Ports
 
-When configuring your container node, you'll need to set the port your app listens on. Use this table to find the default port for your framework.
+When configuring your container node, you'll need to set the port your app listens on. Selecting a framework from the dropdown sets this for you. Use this table for the defaults Shoal applies.
+
+If your framework isn't listed, set the port manually - the default is `8080`.
 
 ---
 
@@ -11,8 +13,7 @@ When configuring your container node, you'll need to set the port your app liste
     | Express   | 3000         | [:material-open-in-new:](https://expressjs.com){ target="_blank" } |
     | Fastify   | 3000         | [:material-open-in-new:](https://fastify.dev){ target="_blank" } |
     | NestJS    | 3000         | [:material-open-in-new:](https://nestjs.com){ target="_blank" } |
-    | Koa       | none         | [:material-open-in-new:](https://koajs.com){ target="_blank" } |
-    | Hapi      | none         | [:material-open-in-new:](https://hapi.dev){ target="_blank" } |
+    | NextJs    | 3000         | [:material-open-in-new:](https://nextjs.org){ target="_blank" } |
 
 === ":simple-python: Python"
 
@@ -21,7 +22,6 @@ When configuring your container node, you'll need to set the port your app liste
     | Flask (Werkzeug)       | 5000         | [:material-open-in-new:](https://flask.palletsprojects.com){ target="_blank" } |
     | Django (Gunicorn)      | 8000         | [:material-open-in-new:](https://www.djangoproject.com){ target="_blank" } |
     | FastAPI (Uvicorn)      | 8000         | [:material-open-in-new:](https://fastapi.tiangolo.com){ target="_blank" } |
-    | Tornado                | none         | [:material-open-in-new:](https://www.tornadoweb.org){ target="_blank" } |
 
 === ":simple-go: Go"
 
@@ -30,8 +30,6 @@ When configuring your container node, you'll need to set the port your app liste
     | Gin                | 8080         | [:material-open-in-new:](https://gin-gonic.com){ target="_blank" } |
     | Echo               | 1323         | [:material-open-in-new:](https://echo.labstack.com){ target="_blank" } |
     | Fiber              | 3000         | [:material-open-in-new:](https://gofiber.io){ target="_blank" } |
-    | Chi                | none         | [:material-open-in-new:](https://go-chi.io){ target="_blank" } |
-    | net/http (stdlib)  | none         | [:material-open-in-new:](https://pkg.go.dev/net/http){ target="_blank" } |
 
 === ":fontawesome-brands-java: Java"
 
@@ -55,7 +53,6 @@ When configuring your container node, you'll need to set the port your app liste
     | --------- | ------------ | ---- |
     | Laravel   | 8000         | [:material-open-in-new:](https://laravel.com){ target="_blank" } |
     | Symfony   | 8000         | [:material-open-in-new:](https://symfony.com){ target="_blank" } |
-    | Slim      | none         | [:material-open-in-new:](https://www.slimframework.com){ target="_blank" } |
 
 === ":simple-ruby: Ruby"
 
@@ -74,14 +71,10 @@ When configuring your container node, you'll need to set the port your app liste
 
     | Framework            | Default Port | Docs |
     | -------------------- | ------------ | ---- |
-    | Ktor                 | none         | [:material-open-in-new:](https://ktor.io){ target="_blank" } |
     | Spring Boot (Kotlin) | 8080         | [:material-open-in-new:](https://spring.io/projects/spring-boot){ target="_blank" } |
 
 === ":simple-rust: Rust"
 
     | Framework | Default Port | Docs |
     | --------- | ------------ | ---- |
-    | Actix-web | none         | [:material-open-in-new:](https://actix.rs){ target="_blank" } |
-    | Axum      | none         | [:material-open-in-new:](https://github.com/tokio-rs/axum){ target="_blank" } |
     | Rocket    | 8000         | [:material-open-in-new:](https://rocket.rs){ target="_blank" } |
-    | Warp      | none         | [:material-open-in-new:](https://github.com/seanmonstar/warp){ target="_blank" } |

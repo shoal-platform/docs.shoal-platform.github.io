@@ -97,6 +97,8 @@ Exact filename matches that are always removed:
 |---|---|
 | `.DS_Store` | macOS folder metadata |
 | `Thumbs.db` | Windows thumbnail cache |
+| `.env` | Environment secrets - configure via Env / Settings instead |
+| `.env.*` | Environment secret variants (e.g. `.env.local`, `.env.production`) |
 
 ---
 
