@@ -11,7 +11,7 @@ When connecting a container node to a file source, you have two options:
 
 Select the folder option in the container node config and pick your project folder. Shoal handles everything automatically - no zipping required.
 
-Shoal also automatically removes files that don't belong in a deployed container (dependencies, caches, build artefacts, editor config), so only your source code is sent. See the full [skipped files reference](skipped-files.md) for details.
+Shoal also automatically removes files that don't belong in a deployed container (dependencies, caches, build artefacts, editor config, and `.env` files), so only your source code is sent. Uploads must be **5 MB or less** after those exclusions. See the full [skipped files reference](skipped-files.md) for details.
 
 ---
 

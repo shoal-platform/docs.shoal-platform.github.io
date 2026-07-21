@@ -9,7 +9,7 @@ This guide walks you through everything you need to get started - from core conc
 ### What is a gateway? Why do I need one?
 A gateway sits in front of your app and directs all incoming traffic to the right place. Think of it as a receptionist - visitors don't go straight to your desk, they check in first. On Shoal, your gateway handles this automatically so your app is reachable from the internet without any extra setup.
 
-It also keeps your app secure and stable. The gateway shields your app from direct exposure to the internet, handles SSL so all traffic is encrypted, and protects against sudden spikes by rate limiting incoming requests - so a surge in traffic won't take your app down.
+It also keeps your app secure and stable. The gateway shields your app from direct exposure to the internet and handles SSL so all traffic is encrypted.
 
 The Shoal gateway is configured to achieve an **A grade** on [SSL Labs](https://www.ssllabs.com/ssltest/){ target="_blank" } out of the box - no SSL configuration needed on your part.
 
@@ -18,15 +18,13 @@ The Shoal gateway is configured to achieve an **A grade** on [SSL Labs](https://
 !!! info "What is SSL Labs?"
     [SSL Labs](https://www.ssllabs.com/ssltest/){ target="_blank" } is a free tool by Qualys that analyses the SSL/TLS configuration of any public-facing website and gives it a grade from A+ down to F. It checks things like which encryption protocols are enabled, certificate validity, and known vulnerabilities. An A grade means your site is using strong, modern encryption and is well protected in transit.
 
-It also includes an **IPS (Intrusion Prevention System)**, which watches incoming traffic in real time and automatically blocks known attacks and malicious requests before they ever reach your app - so you get an extra layer of protection with no setup required.
-
 ### What is a container?
 A container is a lightweight package that holds your app and everything it needs to run - code, dependencies, settings. It works the same way on any machine, so there are no "works on my computer" surprises. Shoal runs your app inside containers behind the scenes.
 
 ### What is a Dockerfile?
 A Dockerfile is a simple text file that describes how to build your container. It lists the steps to set up your app - what base image to start from, what files to copy in, and what command to run. Think of it as a recipe: Shoal follows it to package your app into a container that's ready to deploy.
 
-*You don't always need a Dockerfile - if your project doesn't include one, Shoal auto-detects your stack and builds it for you.*
+*You don't always need a Dockerfile - for supported runtimes, if your project doesn't include one, Shoal auto-detects your stack and builds it for you.*
 
 ### What is a scheduler?
 A scheduler runs tasks on a timer - like a cron job or a recurring reminder. If you need something to happen every night at midnight or every 5 minutes, a scheduler handles that for you without leaving a server running 24/7.

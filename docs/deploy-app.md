@@ -17,19 +17,19 @@ Drag a container node and a gateway node onto the canvas, then link them togethe
 
 ### Step Two
 
-Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
+Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`.
 
 ![Create App](assets/screenshots/app2.png)
 
 ### Step Three
 
-Click the container node to open it, expand the **Source** section, and set up your source - either a GitHub repo or a file upload. If your project includes a Dockerfile, Shoal builds from it; otherwise Shoal auto-detects your stack and builds it for you.
+Click the container node to open it, expand the **Source** section, and set up your source - a GitHub repo, a container image, or a file upload. If your project includes a Dockerfile, Shoal builds from it; otherwise, for supported runtimes, Shoal auto-detects your stack and builds it for you.
 
 ![Create App](assets/screenshots/app3.png)
 
 ### Step Four
 
-Press **Deploy**. You can watch the deployment in real time via the **Observability** menu, or by clicking the link on the deploy button.
+Press **Deploy**. You can watch the deployment in real time via the **Deployments** page, or check build and runtime logs under **Observability & Logs**.
 
 ### Done
 

@@ -15,7 +15,7 @@ Hit deploy, and it just works.
 
 ### Step Two
 
-Click the scheduler node to open it, expand the **Schedule** section, and enter a crontab expression to set when your container should run.
+Click the scheduler node to open it, expand the **Schedule** section, and enter a crontab expression to set when your container should run. You can also set a **Timezone**, mark the schedule as **Paused**, and configure the **Request** (method, headers, and body) that Shoal sends when the job fires.
 
 ![Create App](assets/screenshots/app8.png)
 
@@ -36,10 +36,10 @@ See the full [crontab expressions guide](faq-crontab.md) for more detail.
 
 ### Step Three
 
-Press **Deploy**. You can watch the deployment in real time via the **Observability** menu, or by clicking the link on the deploy button.
+Press **Deploy**. You can watch the deployment in real time via the **Deployments** page, or check build and runtime logs under **Observability & Logs**.
 
 ### Done
 
-Your app is live at the address you configured - connected to your database and running in a scalable, resilient, and protected environment.
+Your scheduled job is live - Shoal will trigger your container on the schedule you configured.
 
 

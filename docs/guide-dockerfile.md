@@ -2,7 +2,7 @@
 
 Shoal uses Docker to package and run your app in a container. A Dockerfile is a plain text file that describes how to do that - it tells Shoal what language runtime to use, how to install your dependencies, and how to start your app.
 
-**A Dockerfile is optional.** If your project doesn't include one, Shoal automatically detects your stack and builds your container for you. Provide a Dockerfile when you want full control over how your app is built.
+**A Dockerfile is optional for supported runtimes.** If your project doesn't include one and you're using a supported language/runtime, Shoal automatically detects your stack and builds your container for you. Provide a Dockerfile when you want full control over how your app is built, or when you select a language/runtime that requires one (for example **Other**, or languages without first-party buildpack support).
 
 ## Where does it go?
 

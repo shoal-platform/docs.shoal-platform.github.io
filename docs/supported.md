@@ -117,7 +117,9 @@ For default ports per framework, see the [framework port reference](faq-port.md)
 | Pattern | Components | Guide |
 |---|---|---|
 | Web app | Container + Gateway | [Deploy an application](deploy-app.md) |
-| App with database | Container + Gateway + external DB | [Deploy with a database](deploy-app-database.md) |
+| App with Neon Postgres | Container + Gateway + NeonDB | [Deploy with Neon](deploy-app-neon.md) |
+| App with MongoDB | Container + Gateway + MongoDB | [Deploy with MongoDB](deploy-app-mongodb.md) |
+| App with external DB (env vars) | Container + Gateway | [Deploy with a database](deploy-app-database.md) |
 | Scheduled job | Container + Scheduler | [Deploy with a scheduler](deploy-app-scheduler.md) |
 | Microservices | Multiple containers + Gateway | [Deploy with multiple containers](deploy-app-multi.md) |
 
@@ -130,9 +132,6 @@ For default ports per framework, see the [framework port reference](faq-port.md)
     | Feature | Details |
     |---|---|
     | **SSL / HTTPS** | Automatic certificate provisioning and renewal - A grade on SSL Labs |
-    | **IPS** | Intrusion Prevention System blocks known attacks before they reach your app |
-    | **Rate limiting** | Protects against traffic spikes and abuse |
-    | **Custom domains** | Point your own domain at any deployment |
     | **Instant subdomain** | Every app gets a `*.eu1.shoal.live` address immediately |
     | **Automatic scaling** | Containers scale up under load and back down when quiet |
     | **Resilience** | Containers restart automatically on failure |
@@ -145,5 +144,5 @@ For default ports per framework, see the [framework port reference](faq-port.md)
 |---|---|---|
 | **Cloud** | Google Cloud Platform (GCP) | AWS, Azure, and others |
 | **Hosting** | Shoal-managed | Deploy to your own private infrastructure |
-| **Databases** | External (e.g. Neon) | Shoal-managed databases |
-| **Dockerfile** | Optional - auto-detection when omitted | Broader framework coverage |
+| **Databases** | NeonDB and MongoDB nodes (via Neon / Atlas), or your own connection string | Further managed options |
+| **Dockerfile** | Optional for supported runtimes - auto-detection when omitted; required for some languages | Broader framework coverage |

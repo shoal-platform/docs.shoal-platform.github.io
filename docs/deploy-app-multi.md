@@ -32,13 +32,13 @@ Each service listens on its own path, and the gateway uses those paths to route 
 
 ### Step One
 
-Drag three container nodes and a gateway node onto the canvas. Link each container to the gateway, then configure each container node with its GitHub repo or file upload.
+Drag three container nodes and a gateway node onto the canvas. Link each container to the gateway, then configure each container node with its GitHub repo, container image, or file upload.
 
 ![Create App](assets/screenshots/app9.png)
 
 ### Step Two
 
-Set the path for each connection. Double-click a link between a container and the gateway to enter the path that should route to that container.
+Set the path for each connection. Click a link between a container and the gateway to enter the path that should route to that container. You can also set an optional rewrite on the same edge.
 
 | Connection | Path to set |
 |---|---|
@@ -50,11 +50,11 @@ Set the path for each connection. Double-click a link between a container and th
 
 ### Step Three
 
-Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`. You can also point a custom domain at this address.
+Click the gateway node to open it, expand the **Domain** section, and enter the URL name you want. For example, entering `shopping-test` will make your app available at `shopping-test.eu1.shoal.live`.
 
 ### Step Four
 
-Press **Deploy**. You can watch the deployment in real time via the **Observability** menu, or by clicking the link on the deploy button.
+Press **Deploy**. You can watch the deployment in real time via the **Deployments** page, or check build and runtime logs under **Observability & Logs**.
 
 ### Done
 
