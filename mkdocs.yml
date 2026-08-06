@@ -4,6 +4,8 @@ theme:
   name: material
   logo: assets/logo.png
   favicon: assets/shoal-logo.svg
+  features:
+    - content.code.copy
   palette:
     - scheme: slate
       primary: custom

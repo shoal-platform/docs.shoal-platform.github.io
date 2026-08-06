@@ -68,15 +68,53 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
 
     More detail: [Gemini CLI MCP docs](https://google-gemini.github.io/gemini-cli/docs/tools/mcp-server.html){ target="_blank" }.
 
-=== ":fontawesome-brands-openai: ChatGPT (OpenAI)"
+=== ":fontawesome-brands-openai: ChatGPT / Codex (OpenAI)"
 
-    In ChatGPT, open **Settings → Connectors → Create** (or **Add custom connector**), then:
+    !!! warning "ChatGPT's connector UI can't do this directly"
+        ChatGPT's own **Settings → Connectors** only supports OAuth (or no auth) for remote MCP servers - there's no field for a custom header or API key. Shoal authenticates with `X-Api-Key`, not OAuth, so a direct ChatGPT connector **isn't possible today**. See [OpenAI's MCP auth docs](https://developers.openai.com/plugins/build/auth){ target="_blank" } for confirmation.
 
-    1. Paste the URL `https://api.shoalstack.com/shoal-chatbot-service/mcp`.
-    2. Add a custom header `X-Api-Key` set to your key.
+    The supported path is **[Codex](https://developers.openai.com/codex){ target="_blank" }**, OpenAI's coding agent. Codex's MCP config supports custom headers, and Codex CLI, the Codex IDE extension, and the **Codex panel inside the ChatGPT desktop app** all read the same local config file - so setting it up once makes Shoal's tools available everywhere Codex runs.
 
-    !!! info "Custom connectors need the right plan"
-        Adding your own remote MCP server requires a ChatGPT plan with custom connectors / developer mode enabled (Plus, Pro, Business, or Enterprise). The exact menu wording changes as ChatGPT evolves - see [OpenAI's connector docs](https://platform.openai.com/docs/mcp){ target="_blank" }.
+    **Requirements**
+
+    - [Codex CLI](https://github.com/openai/codex){ target="_blank" } installed: `npm install -g @openai/codex` or `brew install --cask codex`
+    - A ChatGPT plan that includes Codex (Plus, Pro, Team/Business, Enterprise) to sign in with your ChatGPT account - or an OpenAI API key instead
+    - To use it from the **ChatGPT desktop app** (Mac/Windows) rather than the terminal, the app must be installed on the same machine as your Codex config
+
+    **1. Install Codex and sign in**
+
+    ```bash
+    npm install -g @openai/codex
+    codex login
+    ```
+
+    Pick **Sign in with ChatGPT** to use your plan's included usage, or authenticate with an API key.
+
+    **2. Add the Shoal MCP server**
+
+    Codex's `mcp add` command doesn't have a flag for custom headers yet, so add the server directly in `~/.codex/config.toml` (create the file if it doesn't exist):
+
+    ```toml
+    [mcp_servers.shoal-mcp-server]
+    url = "https://api.shoalstack.com/shoal-chatbot-service/mcp"
+    env_http_headers = { "X-Api-Key" = "SHOAL_API_KEY" }
+    ```
+
+    `env_http_headers` maps a header name to an **environment variable name** - Codex reads the value at runtime, so the key itself never touches the config file. Export it in your shell profile:
+
+    ```bash
+    export SHOAL_API_KEY="YOUR_API_KEY"
+    ```
+
+    (Don't use `bearer_token_env_var` here - that sends `Authorization: Bearer <token>`, which Shoal's MCP server doesn't accept.)
+
+    **3. Use it**
+
+    - **Codex CLI** - run `codex` in a terminal; Shoal's tools are available in the session.
+    - **ChatGPT desktop app** - open the **Codex** panel; it reads the same `~/.codex/config.toml`, so the server appears there too.
+    - **ChatGPT web / mobile** - not supported. Those surfaces can't read a local Codex config, and Shoal doesn't yet support the OAuth flow ChatGPT's own connectors require.
+
+    More detail: [Codex MCP docs](https://developers.openai.com/codex/mcp){ target="_blank" }.
 
 === ":simple-x: Grok (xAI)"
 
