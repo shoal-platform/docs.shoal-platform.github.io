@@ -28,6 +28,21 @@ A Dockerfile is a simple text file that describes how to build your container. I
 
 *You don't always need a Dockerfile - if your project doesn't include one, Shoal auto-detects your stack and builds it for you.*
 
+### What is a function?
+A function is a small piece of compute that runs on demand and scales to zero when idle, so you're not paying for a server that sits there waiting. It's a good fit for event-driven tasks and lightweight workloads - a webhook handler, an image resize, a one-off API endpoint. Point Shoal at your source and a gateway, same as a container, and it's live.
+
+*See [Deploying a Function](deploy-app-function.md) for a full walkthrough.*
+
+### What is a database node?
+A database node provisions and manages a database for you and hands your app the connection details automatically - no connection strings to copy around by hand. Shoal currently supports two managed options: **Neon** (serverless Postgres that scales to zero) and **MongoDB Atlas** (managed MongoDB). Connect one to a container or function and its outputs map straight into your app's environment variables.
+
+*See [Deploying with Neon](deploy-app-neon.md) and [Deploying with MongoDB](deploy-app-mongodb.md).*
+
+### What about multiple services, or routing by path?
+Bigger apps are often more than one service - an API, a worker, an admin panel - all living behind one domain. Connect several container or function nodes to the same gateway, and the gateway routes each request to the right one based on the URL path. You can also **rewrite** paths in transit, so a public path like `/accounts` can map to a completely different path on the service behind it.
+
+*See [Deploying with Multiple Containers](deploy-app-multi.md) and [Path-Based Routing](path-routing.md).*
+
 ### What is a scheduler?
 A scheduler runs tasks on a timer - like a cron job or a recurring reminder. If you need something to happen every night at midnight or every 5 minutes, a scheduler handles that for you without leaving a server running 24/7.
 
@@ -36,5 +51,8 @@ Shoal currently deploys into **Google Cloud Platform (GCP)**. Support for Azure,
 
 ### What's a project, and an environment?
 A **project** is a collection of services that belong together - your app, its database, maybe a background worker. An **environment** is a version of that project for a specific purpose: typically `development` (for testing changes) and `production` (the live version your users see). Changes in development don't affect production until you're ready.
+
+### What do I get when I create a new environment?
+Every new environment starts pre-wired with a starter app - a **gateway** already connected to a **container** - so there's something to deploy the moment you land on the canvas. If you uploaded source when creating it, that's pre-loaded onto the container (named "Welcome App") and you can hit **Deploy** straight away. If not, the container's there waiting for you to add your own source. It's just a starting point - delete or replace it any time.
 
 
