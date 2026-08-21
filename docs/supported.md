@@ -118,6 +118,7 @@ For default ports per framework, see the [framework port reference](faq-port.md)
 |---|---|---|
 | Web app | Container + Gateway | [Deploy an application](deploy-app.md) |
 | App with database | Container + Gateway + external DB | [Deploy with a database](deploy-app-database.md) |
+| App with managed Postgres | Container + Gateway + Cloud SQL | [Deploy with Cloud SQL](deploy-app-cloudsql.md) |
 | Scheduled job | Container + Scheduler | [Deploy with a scheduler](deploy-app-scheduler.md) |
 | Microservices | Multiple containers + Gateway | [Deploy with multiple containers](deploy-app-multi.md) |
 
@@ -145,5 +146,5 @@ For default ports per framework, see the [framework port reference](faq-port.md)
 |---|---|---|
 | **Cloud** | Google Cloud Platform (GCP) | AWS, Azure, and others |
 | **Hosting** | Shoal-managed | Deploy to your own private infrastructure |
-| **Databases** | External (e.g. Neon) | Shoal-managed databases |
+| **Databases** | Shoal-managed (Cloud SQL) and external (Neon, MongoDB Atlas) | - |
 | **Dockerfile** | Optional - auto-detection when omitted | Broader framework coverage |

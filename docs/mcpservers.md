@@ -1,53 +1,37 @@
 # Connect Your AI Assistant (MCP)
 
-Shoal runs a **Model Context Protocol (MCP)** server, so you can drive your Shoal platform straight from the AI assistant or editor you already use. Once connected, your assistant can browse the shared blueprint templates, create your own projects and environments, set environment variables, and inspect your deployment graph - all as you, using a key you control.
+Shoal runs a **Model Context Protocol (MCP)** server, so you can drive your Shoal platform straight from the AI assistant or editor you already use. Once connected, your assistant can browse the shared blueprint templates, create your own projects and environments, set environment variables, and inspect your deployment graph - all as you.
 
-Any MCP-capable client works. This guide shows the eight most common ones. The setup is always the same three steps: **create an API key**, point your client at the **server URL**, and pass the key in the **`X-Api-Key`** header.
+Any MCP-capable client works. This guide shows the eight most common ones. There's no API key to manage: the server uses **OAuth**, so you point your client at the server URL, sign in to your space in the browser window that opens, and you're connected.
 
-## 1. Create an API key
+## 1. Your MCP server details
 
-Your assistant authenticates to Shoal with an API key scoped to one of your spaces.
-
-1. Go to **API keys** for your space at `app.shoalstack.com/spaces/<space>/api-keys`, where `<space>` is your space handle (the slug you see in the URL, e.g. `my-team`).
-
-    ![API keys page](assets/screenshots/api-key-1.png)
-
-2. Click **Create key**, give it a **Name** you'll recognise (e.g. `Claude Desktop`), and choose when it should **Expire** - `30`, `60`, `90` days, `1 year`, or `Never`. The default is 30 days.
-
-3. Click **Create key**. Your key is shown **once** - copy it now.
-
-    ![Copy your new key](assets/screenshots/api-key-2.png)
-
-    !!! warning "You only see the key once"
-        For security, Shoal shows the plaintext key a single time and never again. Copy it straight away and store it somewhere safe. Lost it? Just revoke the old one and create a new key.
-
-!!! tip "Revoking a key"
-    To turn off access, click the red **Revoke** button on the key's row. Revocation takes effect immediately - any assistant using that key stops working at once. Create a fresh key to reconnect.
-
-## 2. Your MCP server details
-
-You'll need these three values for every client below:
+You'll need these for every client below:
 
 !!! info "Server details"
     | Field | Value |
     |---|---|
-    | **URL** | `https://api.shoalstack.com/shoal-chatbot-service/mcp` |
+    | **URL** | `https://api.shoalstack.com/mcp/v1` |
     | **Transport** | Streamable HTTP |
-    | **Auth header** | `X-Api-Key: <your-api-key>` |
+    | **Auth** | OAuth - sign in to your space when prompted |
 
-## 3. Add it to your assistant
+The first time a client connects, it opens your browser and asks you to log in to Shoal and approve access. Your client stores the resulting token and refreshes it on its own - you only do this once per client.
 
-Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you created in step 1.
+## 2. Add it to your assistant
+
+Pick your client.
 
 === ":simple-anthropic: Claude"
 
     **Claude Code** (CLI) - add the server in one command:
 
     ```bash
-    claude mcp add --transport http shoal-mcp-server https://api.shoalstack.com/shoal-chatbot-service/mcp --header "X-Api-Key: YOUR_API_KEY"
+    claude mcp add --transport http shoal-mcp-server https://api.shoalstack.com/mcp/v1
     ```
 
-    **Claude Desktop** - open **Settings → Connectors → Add custom connector**, paste the URL above, and add a custom header `X-Api-Key` with your key.
+    Then run `/mcp` inside Claude Code and pick **shoal-mcp-server** to complete the login.
+
+    **Claude Desktop** - open **Settings → Connectors → Add custom connector**, paste the URL above, and click **Connect** to sign in.
 
     More detail: [Claude MCP docs](https://docs.claude.com/en/docs/claude-code/mcp){ target="_blank" }.
 
@@ -59,27 +43,21 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
     {
       "mcpServers": {
         "shoal-mcp-server": {
-          "httpUrl": "https://api.shoalstack.com/shoal-chatbot-service/mcp",
-          "headers": { "X-Api-Key": "YOUR_API_KEY" }
+          "httpUrl": "https://api.shoalstack.com/mcp/v1"
         }
       }
     }
     ```
 
+    Start the CLI and run `/mcp auth shoal-mcp-server` to sign in.
+
     More detail: [Gemini CLI MCP docs](https://google-gemini.github.io/gemini-cli/docs/tools/mcp-server.html){ target="_blank" }.
 
 === ":fontawesome-brands-openai: ChatGPT / Codex (OpenAI)"
 
-    !!! warning "ChatGPT's connector UI can't do this directly"
-        ChatGPT's own **Settings → Connectors** only supports OAuth (or no auth) for remote MCP servers - there's no field for a custom header or API key. Shoal authenticates with `X-Api-Key`, not OAuth, so a direct ChatGPT connector **isn't possible today**. See [OpenAI's MCP auth docs](https://developers.openai.com/plugins/build/auth){ target="_blank" } for confirmation.
+    **ChatGPT** - open **Settings → Connectors → Add custom connector** (developer mode), paste `https://api.shoalstack.com/mcp/v1`, and sign in when prompted.
 
-    The supported path is **[Codex](https://developers.openai.com/codex){ target="_blank" }**, OpenAI's coding agent. Codex's MCP config supports custom headers, and Codex CLI, the Codex IDE extension, and the **Codex panel inside the ChatGPT desktop app** all read the same local config file - so setting it up once makes Shoal's tools available everywhere Codex runs.
-
-    **Requirements**
-
-    - [Codex CLI](https://github.com/openai/codex){ target="_blank" } installed: `npm install -g @openai/codex` or `brew install --cask codex`
-    - A ChatGPT plan that includes Codex (Plus, Pro, Team/Business, Enterprise) to sign in with your ChatGPT account - or an OpenAI API key instead
-    - To use it from the **ChatGPT desktop app** (Mac/Windows) rather than the terminal, the app must be installed on the same machine as your Codex config
+    **Codex** - Codex CLI, the Codex IDE extension, and the Codex panel in the ChatGPT desktop app all read the same local config, so setting it up once covers all three.
 
     **1. Install Codex and sign in**
 
@@ -88,31 +66,24 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
     codex login
     ```
 
-    Pick **Sign in with ChatGPT** to use your plan's included usage, or authenticate with an API key.
-
     **2. Add the Shoal MCP server**
 
-    Codex's `mcp add` command doesn't have a flag for custom headers yet, so add the server directly in `~/.codex/config.toml` (create the file if it doesn't exist):
+    ```bash
+    codex mcp add shoal-mcp-server -- --url https://api.shoalstack.com/mcp/v1
+    ```
+
+    Or add it directly in `~/.codex/config.toml`:
 
     ```toml
     [mcp_servers.shoal-mcp-server]
-    url = "https://api.shoalstack.com/shoal-chatbot-service/mcp"
-    env_http_headers = { "X-Api-Key" = "SHOAL_API_KEY" }
+    url = "https://api.shoalstack.com/mcp/v1"
     ```
 
-    `env_http_headers` maps a header name to an **environment variable name** - Codex reads the value at runtime, so the key itself never touches the config file. Export it in your shell profile:
+    **3. Sign in**
 
     ```bash
-    export SHOAL_API_KEY="YOUR_API_KEY"
+    codex mcp login shoal-mcp-server
     ```
-
-    (Don't use `bearer_token_env_var` here - that sends `Authorization: Bearer <token>`, which Shoal's MCP server doesn't accept.)
-
-    **3. Use it**
-
-    - **Codex CLI** - run `codex` in a terminal; Shoal's tools are available in the session.
-    - **ChatGPT desktop app** - open the **Codex** panel; it reads the same `~/.codex/config.toml`, so the server appears there too.
-    - **ChatGPT web / mobile** - not supported. Those surfaces can't read a local Codex config, and Shoal doesn't yet support the OAuth flow ChatGPT's own connectors require.
 
     More detail: [Codex MCP docs](https://developers.openai.com/codex/mcp){ target="_blank" }.
 
@@ -120,8 +91,8 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
 
     Grok can call remote MCP servers.
 
-    - **Grok app** - open **Settings → Connectors → Add MCP server** (or **Add custom connector**), paste the URL `https://api.shoalstack.com/shoal-chatbot-service/mcp`, and add a custom header `X-Api-Key` with your key.
-    - **Grok CLI / MCP-capable Grok client** - point it at the same URL with an `X-Api-Key` header, using the client's `mcpServers` config (same shape as the Cursor tab).
+    - **Grok app** - open **Settings → Connectors → Add MCP server** (or **Add custom connector**), paste the URL `https://api.shoalstack.com/mcp/v1`, and sign in when prompted.
+    - **Grok CLI / MCP-capable Grok client** - point it at the same URL using the client's `mcpServers` config (same shape as the Cursor tab).
 
     !!! info "xAI MCP support is newer"
         Grok's MCP connector support is relatively new and the exact menu wording changes as xAI iterates. If you don't see an MCP / custom-connector option, check [xAI's documentation](https://docs.x.ai){ target="_blank" } for the current steps.
@@ -134,14 +105,13 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
     {
       "mcpServers": {
         "shoal-mcp-server": {
-          "url": "https://api.shoalstack.com/shoal-chatbot-service/mcp",
-          "headers": { "X-Api-Key": "YOUR_API_KEY" }
+          "url": "https://api.shoalstack.com/mcp/v1"
         }
       }
     }
     ```
 
-    Then enable the server under **Settings → MCP**. More detail: [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol){ target="_blank" }.
+    Then enable the server under **Settings → MCP** and click **Login** / **Needs login** to authorise it. More detail: [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol){ target="_blank" }.
 
 === ":simple-windsurf: Windsurf"
 
@@ -151,14 +121,13 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
     {
       "mcpServers": {
         "shoal-mcp-server": {
-          "serverUrl": "https://api.shoalstack.com/shoal-chatbot-service/mcp",
-          "headers": { "X-Api-Key": "YOUR_API_KEY" }
+          "serverUrl": "https://api.shoalstack.com/mcp/v1"
         }
       }
     }
     ```
 
-    Then click **Refresh**. More detail: [Windsurf MCP docs](https://docs.windsurf.com/windsurf/cascade/mcp){ target="_blank" }.
+    Click **Refresh**, then hit the server's login prompt to sign in. More detail: [Windsurf MCP docs](https://docs.windsurf.com/windsurf/cascade/mcp){ target="_blank" }.
 
 === ":material-robot: Cline"
 
@@ -169,14 +138,13 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
       "mcpServers": {
         "shoal-mcp-server": {
           "type": "streamableHttp",
-          "url": "https://api.shoalstack.com/shoal-chatbot-service/mcp",
-          "headers": { "X-Api-Key": "YOUR_API_KEY" }
+          "url": "https://api.shoalstack.com/mcp/v1"
         }
       }
     }
     ```
 
-    More detail: [Cline MCP docs](https://docs.cline.bot/mcp/configuring-mcp-servers){ target="_blank" }.
+    Cline opens the sign-in page on first connect. More detail: [Cline MCP docs](https://docs.cline.bot/mcp/configuring-mcp-servers){ target="_blank" }.
 
 === ":material-microsoft-visual-studio-code: VS Code"
 
@@ -187,31 +155,23 @@ Pick your client. In every snippet, replace `YOUR_API_KEY` with the key you crea
       "servers": {
         "shoal-mcp-server": {
           "type": "http",
-          "url": "https://api.shoalstack.com/shoal-chatbot-service/mcp",
-          "headers": { "X-Api-Key": "${input:shoal-api-key}" }
+          "url": "https://api.shoalstack.com/mcp/v1"
         }
-      },
-      "inputs": [
-        {
-          "id": "shoal-api-key",
-          "type": "promptString",
-          "description": "Shoal API key",
-          "password": true
-        }
-      ]
+      }
     }
     ```
 
-    Using `${input:...}` keeps your key out of the committed file - VS Code prompts for it once. More detail: [VS Code MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers){ target="_blank" }.
+    Click **Start** above the server entry - VS Code opens the browser for you to sign in and approve access. Because there's no secret in the file, it's safe to commit. More detail: [VS Code MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers){ target="_blank" }.
 
 ## Verify it works
 
 Ask your assistant to **list the available Shoal blueprints** - the shared, reusable templates on the platform. Behind the scenes that calls the read-only `list_blueprints` tool - if you get a list back, you're connected and ready to go. From there you can ask it to **create a project** of your own, add an environment, set variables, and more.
 
 !!! tip "Not connecting?"
-    - Check the key hasn't been revoked or expired under **Space → API keys**.
-    - Confirm the header name is exactly `X-Api-Key`.
-    - Make sure you copied the whole key with no extra spaces.
+    - Make sure you completed the browser sign-in and approved access - some clients silently fail if the window was closed.
+    - Confirm the URL is exactly `https://api.shoalstack.com/mcp/v1`.
+    - Sign in with the account that has access to the space you want to work in.
     - Restart the client after editing its config file so it reloads the server.
+    - Tokens expire eventually - if calls start failing, re-run your client's login step for the server.
 
 New to Shoal? Start with the [Initial Setup guide](first-setup.md) to create your first space and project.
