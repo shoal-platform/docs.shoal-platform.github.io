@@ -12,7 +12,7 @@ You need six components: three **container nodes**, a **gateway node**, a **mess
 Hit deploy, and it just works.
 
 !!! tip "Skip the setup - use the blueprint"
-    This whole graph is published as a ready-made blueprint: [Order Queue - Producer, Consumer & Dashboard](https://app.shoalstack.com/blueprints/bc3a1979-0b6e-4487-a43b-2173590218e0). Open it, set your gateway domain and database, and press **Deploy** - every node, path, and output mapping described below is already wired up.
+    This whole graph is published as a ready-made blueprint: [Order Queue - Producer, Consumer & Dashboard](https://app.shoalstack.com/blueprints/93f9c998-3883-40f8-a02d-ed56db7248f5). Open it, set your gateway domain and database, and press **Deploy** - every node, path, and output mapping described below is already wired up.
 
     Prefer to build it yourself, or want to understand what the blueprint does? Follow the steps on this page.
 
@@ -158,10 +158,12 @@ You can manage environment variables from each container node's **Env** section,
 
 Press **Deploy**. You can watch the deployment in real time via the **Observability** menu, or by clicking the link on the deploy button.
 
-Once your graph is working, you can share it with others by pressing **Publish Blueprint** - which is exactly how the [blueprint linked at the top of this page](https://app.shoalstack.com/blueprints/bc3a1979-0b6e-4487-a43b-2173590218e0) was made.
+Once your graph is working, you can share it with others by pressing **Publish Blueprint** - which is exactly how the [blueprint linked at the top of this page](https://app.shoalstack.com/blueprints/93f9c998-3883-40f8-a02d-ed56db7248f5) was made.
 
 ## Done
 
-Open your gateway address and place an order. The dashboard confirms it immediately - that response comes from the producer as soon as the message is queued - and the order appears in the list a moment later, once the collector has consumed it from the subscription and written it to Neon.
+Open your gateway address and place an order. The dashboard confirms it immediately with **Order accepted and queued.** - that response comes from the producer as soon as the message is queued - and the order appears under **Recent orders** a moment later, once the collector has consumed it from the subscription and written it to Neon.
+
+![Delivery dashboard showing an accepted order in the recent orders list](assets/screenshots/mq-06-dashboard-result.png)
 
 To see the queue doing its job, pause or redeploy the collector and keep placing orders. Checkout carries on working, and every queued order lands in the database as soon as the collector is back.
