@@ -119,6 +119,7 @@ For default ports per framework, see the [framework port reference](faq-port.md)
 | Web app | Container + Gateway | [Deploy an application](deploy-app.md) |
 | App with database | Container + Gateway + external DB | [Deploy with a database](deploy-app-database.md) |
 | App with managed Postgres | Container + Gateway + Cloud SQL | [Deploy with Cloud SQL](deploy-app-cloudsql.md) |
+| App with file storage | Containers + Gateway + Bucket | [Deploy with a bucket](deploy-app-bucket.md) |
 | Scheduled job | Container + Scheduler | [Deploy with a scheduler](deploy-app-scheduler.md) |
 | Microservices | Multiple containers + Gateway | [Deploy with multiple containers](deploy-app-multi.md) |
 
